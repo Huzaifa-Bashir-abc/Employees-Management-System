@@ -28,14 +28,14 @@ const App = () => {
       return true;
     } else if (userData) {
       const employee = userData.find(
-        (e) => email === e.email && e.password === password
+        (e) => email === e.email && e.password === password,
       );
       if (employee) {
         setUser("employee");
         setLoggedInUserData(employee);
         localStorage.setItem(
           "loggedInUser",
-          JSON.stringify({ role: "employee", data: employee })
+          JSON.stringify({ role: "employee", data: employee }),
         );
         return true;
       }
@@ -51,7 +51,7 @@ const App = () => {
   };
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Employees-Management-System/">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
